@@ -1,0 +1,41 @@
+---
+swagger: "2.0"
+info:
+  description: "This is for creating a demo of integration of swagger and serverless"
+  version: "2020-09-28T05:16:05Z"
+  title: "dev-serverless-swagger-demo"
+  termsOfService: "None"
+  contact:
+    name: "Satyaki Roy"
+    url: "https://www.linkedin.com/in/satyaki-roy-b8a7a2109"
+    email: "SatyakiRoy001@gmail.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "7dy6otr2m3.execute-api.ap-south-1.amazonaws.com"
+basePath: "/dev"
+schemes:
+- "https"
+paths:
+  /hello:
+    get:
+      tags:
+      - "Tag1"
+      summary: "Greet User"
+      description: "This will greet a the user who is viewing this Demo."
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/MessageResponse"
+definitions:
+  MessageResponse:
+    type: "object"
+    required:
+    - "message"
+    properties:
+      message:
+        type: "string"
+    description: "Demonstrates a GET method"

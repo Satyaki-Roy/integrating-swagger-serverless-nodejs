@@ -18,3 +18,59 @@ functions:
       - http:
           method: GET
           path: /hello
+          documentation:
+            summary: "Greet User"
+            description: "This will greet a the user who is viewing this Demo."
+            tags:
+              - "Tag1"
+            requestBody:
+              description: "Nothing to send in request body"
+            methodResponses:
+              - statusCode: '200'
+                responseModels:
+                  "application/json": MessageResponse
+
+custom:
+  documentation:
+    api:
+      info:
+        version: "2"
+        title: "Serverless Swagger Demo"
+        description: "This is for creating a demo of integration of swagger and serverless"
+        termsOfService: "None"
+        contact:
+          name: "Satyaki Roy"
+          url: "https://www.linkedin.com/in/satyaki-roy-b8a7a2109"
+          email: "SatyakiRoy001@gmail.com"
+        license:
+          name: "MIT"
+          url: "https://opensource.org/licenses/MIT"
+    tags:
+      -
+        name: "Tag1"
+        description: "Tag Description"
+    resources:
+      -
+        path: "/hello"
+        description: "Welcoming the user to the Demo"
+    models:
+      -
+        name: "MessageResponse"
+        description: "Demonstrates a GET method"
+        contentType: "application/json"
+        schema:
+          type: "object"
+          properties:
+            message:
+              type: "string"
+          required:
+            - "message"
+      -
+        name: "ErrorResponse"
+        description: "This is an error"
+        contentType: "application/json"
+        schema:
+          type: "object"
+          properties:
+            message:
+              type: "string"
